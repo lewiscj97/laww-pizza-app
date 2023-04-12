@@ -9,6 +9,25 @@
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
+
+    <h2 class="govuk-heading-l">Software engineers needed!</h2>
+    <p class="govuk-body">
+      The Department for Work and Pizza's software engineer has decided to retrain as a chef.
+    </p>
+    <p class="govuk-body">
+      They have started to build this website to allow our customers to order pizza online, but they
+      haven't been able to finish it.
+    </p>
+    <p class="govuk-body">
+      It's your job to get this website up and running!
+    </p>
+
+    {{ govukButton({
+        text: "Get started!",
+        href: "/base",
+        isStartButton: true
+      }) }}
+
   </div>
 </div>
 
