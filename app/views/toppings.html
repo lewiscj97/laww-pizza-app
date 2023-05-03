@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {% block pageTitle %}
   Pizza base – {{ serviceName }} – GOV.UK Prototype Kit
@@ -23,13 +24,11 @@
       {% endif %}
 
       <form class="form" method="post">
-        {{ govukRadios({
-          id: "pizza-base",
-          name: "pizza-base",
-          value: data["pizza-base"],
+        {{ govukCheckboxes({
+          name: "toppings",
           fieldset: {
             legend: {
-              text: "Choose your pizza base",
+              text: "Select your toppings",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -37,28 +36,41 @@
           errorMessage: {
             text: errors[0].text
           } if errors,
-          hint: {
-            text: "Select a base for your pizza from the options below"
-          },
           items: [
             {
-              value: "tomato",
-              text: "Tomato"
+              value: "cheese",
+              text: "Cheese"            },
+            {
+              value: "pepperoni",
+              text: "Pepperoni"
             },
             {
-              value: "bbq",
-              text: "BBQ"
+              value: "olives",
+              text: "Olives"
+            },
+            {
+              value: "ham",
+              text: "Ham"
+            },
+            {
+              value: "pinapple",
+              text: "Pinapple"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "no-toppings",
+              text: "No toppings",
+              behaviour: "exclusive"
             }
           ]
         }) }}
 
-
         {{ govukButton({
-          text: "Continue",
-          href: '/toppings'
+          text: "Continue"
         }) }}
       </form>
     </div>
   </div>
 {% endblock %}
-

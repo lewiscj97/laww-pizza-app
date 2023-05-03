@@ -37,7 +37,41 @@
                 }
               ]
             }
-          }
+          },
+          {
+            key: {
+              text: "Toppings"
+            },
+            value: {
+              text: data['toppings']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/toppings",
+                  text: "Change",
+                  visuallyHiddenText: "toppings"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Sides"
+            },
+            value: {
+              text: data['select-sides']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/select-sides",
+                  text: "Change",
+                  visuallyHiddenText: "side"
+                }
+              ]
+            }
+          } if data['select-sides']
         ]
       }) }}
 
