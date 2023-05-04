@@ -24,9 +24,9 @@
 
       <form class="form" method="post">
         {{ govukRadios({
-          id: "sides-confirm",
-          name: "sides-confirm",
-          value: data["sides-confirm"],
+          id: "do-you-want-sides",
+          name: "do-you-want-sides",
+          value: data["do-you-want-sides"],
           fieldset: {
             legend: {
               text: "Do you want sides?",
@@ -39,11 +39,11 @@
           } if errors,
           items: [
             {
-              value: "yes",
+              value: "Yes",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "No",
               text: "No"
             }
           ]

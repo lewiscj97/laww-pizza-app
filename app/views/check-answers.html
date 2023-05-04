@@ -43,14 +43,14 @@
               text: "Toppings"
             },
             value: {
-              text: data['toppings']
+              text: data['toppings'] or [] | join(', ')
             },
             actions: {
               items: [
                 {
                   href: "/toppings",
                   text: "Change",
-                  visuallyHiddenText: "toppings"
+                  visuallyHiddenText: "toppings" 
                 }
               ]
             }
@@ -60,14 +60,14 @@
               text: "Sides"
             },
             value: {
-              text: data['select-sides']
+              text: data['select-sides'] | join(', ')
             },
             actions: {
               items: [
                 {
                   href: "/select-sides",
                   text: "Change",
-                  visuallyHiddenText: "side"
+                  visuallyHiddenText: "select sides"
                 }
               ]
             }
