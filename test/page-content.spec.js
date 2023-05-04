@@ -18,7 +18,7 @@ describe("pages-content", () => {
   });
 
   describe('index', () => {
-    it.only("should render page with correct header and button content", async () => {
+    it("should render page with correct header and button content", async () => {
       await page.goto(baseURL);
   
       const xPaths = [
