@@ -9,7 +9,9 @@ describe("pages-content", () => {
   let page;
 
   beforeEach(async () => {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      headless: 'new'
+    });
     page = await browser.newPage();
   });
 
@@ -155,7 +157,7 @@ describe("pages-content", () => {
     });
   });
 
-  describe('sides confirmation', () => {
+  describe('do you want sides', () => {
     it("should render page with content", async () => {
       await page.goto(`${baseURL}do-you-want-sides`);
   

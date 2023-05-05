@@ -9,7 +9,9 @@ describe("pages-routing", () => {
   let page;
 
   beforeEach(async () => {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      headless: 'new'
+    });
     page = await browser.newPage();
   });
 
@@ -28,42 +30,30 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}base`);
     await page.click("#pizza-base");
     await page.click(".govuk-button");
-    await page.waitForNavigation({
-      waitUntil: 'networkidle0',
-    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}toppings`);
   });
 
-  it("should navigate from toppings to sides confirm page", async () => {
+  it("should navigate from toppings to do you want sides page", async () => {
     await page.goto(`${baseURL}toppings`);
     await page.click("#toppings");
     await page.click(".govuk-button");
-    await page.waitForNavigation({
-      waitUntil: 'networkidle0',
-    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}do-you-want-sides`);
   });
 
-  it("should navigate from sides confirm to select sides page when selecting yes", async () => {
+  it("should navigate from do you want sides to select sides page when selecting yes", async () => {
     await page.goto(`${baseURL}do-you-want-sides`);
     await page.click("#do-you-want-sides");
     await page.click(".govuk-button");
-    await page.waitForNavigation({
-      waitUntil: 'networkidle0',
-    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}select-sides`);
   });
 
-  it("should navigate from sides confirm to check answers page when selecting no", async () => {
+  it("should navigate from do you want sides to check answers page when selecting no", async () => {
     await page.goto(`${baseURL}do-you-want-sides`);
     await page.click("#do-you-want-sides-2");
     await page.click(".govuk-button");
-    await page.waitForNavigation({
-      waitUntil: 'networkidle0',
-    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}check-answers`);
   });
@@ -72,9 +62,6 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}select-sides`);
     await page.click("#select-sides");
     await page.click(".govuk-button");
-    await page.waitForNavigation({
-      waitUntil: 'networkidle0',
-    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}check-answers`);
   });
