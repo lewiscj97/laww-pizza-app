@@ -19,8 +19,6 @@
         Check your answers
       </h1>
 
-      {{ data | dump }}
-
       {{ govukSummaryList({
         rows: [
           {
@@ -52,7 +50,24 @@
                 {
                   href: "/toppings",
                   text: "Change",
-                  visuallyHiddenText: "toppings" 
+                  visuallyHiddenText: "toppings"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Would you like sides?"
+            },
+            value: {
+              text: data['do-you-want-sides']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/do-you-want-sides",
+                  text: "Change",
+                  visuallyHiddenText: "whether you would like sides"
                 }
               ]
             }
@@ -76,6 +91,14 @@
           } if data['select-sides']
         ]
       }) }}
+
+      <h2 class="govuk-heading-m">
+        Order total
+      </h2>
+
+      <p class="govuk-body">
+        £{{ orderTotalValue }}
+      </p>
 
       <h2 class="govuk-heading-m">
         Order your pizza

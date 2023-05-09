@@ -4,6 +4,7 @@
 //
 
 const govukPrototypeKit = require("govuk-prototype-kit");
+const { orderTotal } = require('./order-calculator');
 const router = govukPrototypeKit.requests.setupRouter();
 
 function getCheckboxPage(req, res, pageName, errors) {
@@ -88,3 +89,7 @@ router.post("/select-sides", function (req, res) {
   return res.redirect("/check-answers");
 });
 
+router.get("/check-answers", function (req, res) {
+  const sides = req.session.data["select-sides"];
+  return res.render("/check-answers", { orderTotalValue: orderTotal(sides) })
+});
