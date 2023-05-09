@@ -281,8 +281,11 @@ describe("pages-content", () => {
         "//*[@id='main-content']/div/div/h1",
         "//*[@id='main-content']/div/div/dl/div[1]/dt",
         "//*[@id='main-content']/div/div/dl/div[2]/dt",
+        "//*[@id='main-content']/div/div/dl/div[3]/dt",
         "//*[@id='main-content']/div/div/h2",
         "//*[@id='main-content']/div/div/p",
+        "//*[@id='main-content']/div/div/h2[2]",
+        "//*[@id='main-content']/div/div/p[2]",
         "//*[@id='main-content']/div/div/form/button",
       ];
   
@@ -290,7 +293,10 @@ describe("pages-content", () => {
         pageHeaderText,
         tableLabel1,
         tableLabel2,
-        subHeading,
+        tableLabel3,
+        orderTotalSubHeading,
+        orderTotal,
+        declarationSubHeading,
         declaration,
         buttonText,
       ] = await Promise.all(
@@ -304,7 +310,10 @@ describe("pages-content", () => {
       expect(pageHeaderText).to.be.eq("Check your answers");
       expect(tableLabel1).to.be.eq("Pizza base");
       expect(tableLabel2).to.be.eq("Toppings");
-      expect(subHeading).to.be.eq("Order your pizza");
+      expect(tableLabel3).to.be.eq("Would you like sides?");
+      expect(orderTotalSubHeading).to.be.eq("Order total");
+      expect(orderTotal).to.be.eq("£10.00");
+      expect(declarationSubHeading).to.be.eq("Order your pizza");
       expect(declaration).to.be.eq("By submitting this application you are confirming that, to the best of your knowledge, this is the pizza you'd like to order.");
       expect(buttonText).to.be.eq("Accept and send");
   
