@@ -23,6 +23,7 @@
         }) }}
       {% endif %}
 
+      <!-- TODO: update toppings to be tasty, not gross -->
       <form class="form" method="post">
         {{ govukCheckboxes({
           name: "toppings",
@@ -38,24 +39,24 @@
           } if errors.length > 0,
           items: [
             {
-              value: "Cheese",
-              text: "Cheese",
-              checked: 'Cheese' in viewData
+              value: "Butter",
+              text: "Butter",
+              checked: 'Butter' in viewData
             },
             {
-              value: "Pepperoni",
-              text: "Pepperoni",
-              checked: 'Pepperoni' in viewData
+              value: "Banana",
+              text: "Banana",
+              checked: 'Banana' in viewData
             },
             {
-              value: "Olives",
-              text: "Olives",
-              checked: 'Olives' in viewData
+              value: "Cucumber",
+              text: "Cucumber",
+              checked: 'Cucumber' in viewData
             },
             {
-              value: "Ham",
-              text: "Ham",
-              checked: 'Ham' in viewData
+              value: "Tuna",
+              text: "Tuna",
+              checked: 'Tuna' in viewData
             },
             {
               value: "Pineapple",

@@ -50,13 +50,9 @@ describe("pages-routing", () => {
     expect(url).to.be.eq(`${baseURL}select-sides`);
   });
 
-  it("should navigate from do you want sides to check answers page when selecting no", async () => {
-    await page.goto(`${baseURL}do-you-want-sides`);
-    await page.click("#do-you-want-sides-2");
-    await page.click(".govuk-button");
-    const url = await page.evaluate(() => document.location.href);
-    expect(url).to.be.eq(`${baseURL}check-answers`);
-  });
+  // TODO: add a unit test for when the user selects no
+  // Hint: it should have a url equal to `${baseURL}check-answers`
+  // Hint: The element to click should be #do-you-want-sides-2
 
   it("should navigate from select sides to check answers page", async () => {
     await page.goto(`${baseURL}select-sides`);
