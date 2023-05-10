@@ -2,11 +2,15 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "test": "mocha --recursive test"
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "^1.1.1",
+    "chai": "^4.3.7",
     "govuk-frontend": "^4.5.0",
-    "govuk-prototype-kit": "^13.6.0"
+    "govuk-prototype-kit": "^13.6.0",
+    "mocha": "^10.2.0",
+    "puppeteer": "^19.11.1"
   }
 }

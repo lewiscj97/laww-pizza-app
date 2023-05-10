@@ -37,9 +37,68 @@
                 }
               ]
             }
-          }
+          },
+          {
+            key: {
+              text: "Toppings"
+            },
+            value: {
+              text: data['toppings'] or [] | join(', ')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/toppings",
+                  text: "Change",
+                  visuallyHiddenText: "toppings"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Would you like sides?"
+            },
+            value: {
+              text: data['do-you-want-sides']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/do-you-want-sides",
+                  text: "Change",
+                  visuallyHiddenText: "whether you would like sides"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Sides"
+            },
+            value: {
+              text: data['select-sides'] | join(', ')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/select-sides",
+                  text: "Change",
+                  visuallyHiddenText: "select sides"
+                }
+              ]
+            }
+          } if data['select-sides']
         ]
       }) }}
+
+      <h2 class="govuk-heading-m">
+        Order total
+      </h2>
+
+      <p class="govuk-body">
+        £{{ orderTotalValue }}
+      </p>
 
       <h2 class="govuk-heading-m">
         Order your pizza

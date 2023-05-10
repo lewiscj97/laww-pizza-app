@@ -24,12 +24,12 @@
 
       <form class="form" method="post">
         {{ govukRadios({
-          id: "pizza-base",
-          name: "pizza-base",
-          value: data["pizza-base"],
+          id: "do-you-want-sides",
+          name: "do-you-want-sides",
+          value: data["do-you-want-sides"],
           fieldset: {
             legend: {
-              text: "Choose your pizza base",
+              text: "Do you want sides?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -37,21 +37,17 @@
           errorMessage: {
             text: errors[0].text
           } if errors,
-          hint: {
-            text: "Select a base for your pizza from the options below"
-          },
           items: [
             {
-              value: "Tomato",
-              text: "Tomato"
+              value: "Yes",
+              text: "Yes"
             },
             {
-              value: "BBQ",
-              text: "BBQ"
+              value: "No",
+              text: "No"
             }
           ]
         }) }}
-
 
         {{ govukButton({
           text: "Continue"

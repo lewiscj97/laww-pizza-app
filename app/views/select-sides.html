@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Pizza base – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      <form class="form" method="post">
+        {{ govukCheckboxes({
+          name: "select-sides",
+          fieldset: {
+            legend: {
+              text: "Select your sides",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          errorMessage: {
+            text: errors[0].text
+          } if errors,
+          items: [
+            {
+              value: "Garlic Bread",
+              text: "Garlic Bread",
+              checked: 'Garlic Bread' in viewData    
+            },
+            {
+              value: "Cheesy Garlic Bread",
+              text: "Cheesy Garlic Bread",
+              checked: 'Cheesy Garlic Bread' in viewData       
+            },
+            {
+              value: "Fries",
+              text: "Fries",
+              checked: 'Fries' in viewData
+            },
+            {
+              value: "Potato Tots",
+              text: "Potato Tots",
+              checked: 'Potato Tots' in viewData
+            },
+            {
+              value: "BBQ Chicken Wings",
+              text: "BBQ Chicken Wings",
+              checked: 'BBQ Chicken Wings' in viewData
+            },
+            {
+              value: "Chicken Bites",
+              text: "Chicken Bites",
+              checked: 'Chicken Bites' in viewData
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
