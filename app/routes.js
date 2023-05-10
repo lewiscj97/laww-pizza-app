@@ -46,12 +46,11 @@ router.post("/toppings", function (req, res) {
     return getCheckboxPage(req, res, 'toppings', errors);
   }
 
-  req.body.errors = undefined;
   return res.redirect("/do-you-want-sides");
 });
 
 router.post("/do-you-want-sides", function (req, res) {
-  const sidesConfirm = req.body["do-you-want-sides"];
+  const sidesConfirm = req.session.data["do-you-want-sides"];
 
   switch (sidesConfirm) {
     case "Yes":
