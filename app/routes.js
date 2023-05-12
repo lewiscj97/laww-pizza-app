@@ -26,7 +26,8 @@ router.post("/base", function (req, res) {
     });
   }
 
-  return res.redirect("/toppings");
+  // TODO: fix the link to redirect to the correct page
+  return res.redirect('https://www.dominos.co.uk/');
 });
 
 router.get("/toppings", function (req, res) {
@@ -52,22 +53,14 @@ router.post("/toppings", function (req, res) {
 router.post("/do-you-want-sides", function (req, res) {
   const sidesConfirm = req.session.data["do-you-want-sides"];
 
+  // TODO: populate each case below
   switch (sidesConfirm) {
     case "Yes":
-      req.session.data["select-sides"] ??= [];
-      return res.redirect("/select-sides");
+      // Hint: this should redirect to /select-sides
     case "No":
-      req.session.data["select-sides"] = undefined;
-      return res.redirect("/check-answers");
+      // Hint: this should redirect to /check-answers
     default:
-      return res.render("/do-you-want-sides", {
-        errors: [
-          {
-            text: "Select Yes if you would like to add sides to your order",
-            href: "#do-you-want-sides",
-          },
-        ],
-      });
+      // Hint: this should render /do-you-want-sides
   }
 });
 

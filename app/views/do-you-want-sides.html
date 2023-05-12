@@ -23,31 +23,9 @@
       {% endif %}
 
       <form class="form" method="post">
-        {{ govukRadios({
-          id: "do-you-want-sides",
-          name: "do-you-want-sides",
-          value: data["do-you-want-sides"],
-          fieldset: {
-            legend: {
-              text: "Do you want sides?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          errorMessage: {
-            text: errors[0].text
-          } if errors,
-          items: [
-            {
-              value: "Yes",
-              text: "Yes"
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-        }) }}
+        <!-- TODO: add a radio element asking the user whether they want sides  -->
+        <!-- Hint: https://design-system.service.gov.uk/components/radios/  -->
+        <!-- Hint: the 'base.html' is a good example of how to do this!  -->
 
         {{ govukButton({
           text: "Continue"
@@ -56,4 +34,3 @@
     </div>
   </div>
 {% endblock %}
-

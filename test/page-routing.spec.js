@@ -3,7 +3,6 @@ const { expect } = require("chai");
 
 describe("pages-routing", () => {
   const baseURL = "http://localhost:3000/";
-  const screenshotsPath = `${process.cwd()}/test/screenshots/`;
 
   let browser;
   let page;
@@ -22,6 +21,9 @@ describe("pages-routing", () => {
   it("should navigate from index to base page", async () => {
     await page.goto(baseURL);
     await page.click(".govuk-button--start");
+    await page.waitForSelector(".govuk-fieldset__heading", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}base`);
   });
@@ -30,6 +32,9 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}base`);
     await page.click("#pizza-base");
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-fieldset__heading", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}toppings`);
   });
@@ -38,6 +43,9 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}toppings`);
     await page.click("#toppings");
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-fieldset__heading", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}do-you-want-sides`);
   });
@@ -46,6 +54,9 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}do-you-want-sides`);
     await page.click("#do-you-want-sides");
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-fieldset__heading", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}select-sides`);
   });
@@ -54,6 +65,9 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}do-you-want-sides`);
     await page.click("#do-you-want-sides-2");
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-heading-xl", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}check-answers`);
   });
@@ -62,6 +76,9 @@ describe("pages-routing", () => {
     await page.goto(`${baseURL}select-sides`);
     await page.click("#select-sides");
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-heading-xl", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}check-answers`);
   });
@@ -69,6 +86,9 @@ describe("pages-routing", () => {
   it("should navigate from check answers to confirmation page", async () => {
     await page.goto(`${baseURL}check-answers`);
     await page.click(".govuk-button");
+    await page.waitForSelector(".govuk-heading-m", {
+      visible: true,
+    });
     const url = await page.evaluate(() => document.location.href);
     expect(url).to.be.eq(`${baseURL}confirmation`);
   });

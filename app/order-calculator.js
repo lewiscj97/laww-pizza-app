@@ -11,13 +11,13 @@ const sides = {
 
 function orderTotal(selectedSides) {
   if (selectedSides) {
-    const sidesPrices = selectedSides.map((selectedSide) => sides[selectedSide]);
-    const sidesTotal = sidesPrices.reduce((acc, next) => acc += next);
-    return (sidesTotal + pizzaPrice).toFixed(2);
+    // TODO: calculate the total of the order
+    // Step 1: get all individual prices of selected sides
+    // Step 2: get total cost of sides
+    // Step 3: add total cost of sides and pizza price and return in x.xx format
   }
 
   return pizzaPrice.toFixed(2);
-
 }
 
 module.exports = {
